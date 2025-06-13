@@ -15,4 +15,7 @@ def list_messages():
 def post_message(username:str, message: str):
     messages.append({"username": username, "message": message})
 
+@api.POST("/api/update/")
+def post_leave(username:str, action:str):
+    messages.append({"username":"Server","message":f'{username} {action} the Chat'})
 run(api, port=5000)
